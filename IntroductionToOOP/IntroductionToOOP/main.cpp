@@ -18,11 +18,14 @@ public:
 	}
 	void set_x(double x)
 	{
-		x = x;
+		this->x = x;
+		//this - это указатель на объект, для которого вызывается метод
+		//Изнутри метода невозможно узнать имя объекта, для которого он вызывается
+		//НО всегда можно узнать адрес этого объекта.
 	}
 	void set_y(double y)
 	{
-		y = y;
+		this->y = y;
 	}
 }A,B,C;
 
@@ -45,6 +48,8 @@ void main()
 #endif // STRUCT_POINT
 
 	Point A;
+	A.set_x(2);
+	A.set_y(3);
 	cout << A.get_x() << tab << A.get_y() << endl;
 }
 
