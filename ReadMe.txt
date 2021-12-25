@@ -2,6 +2,16 @@ https://github.com/okovtun/SPD_121.git
 https://www.youtube.com/watch?v=NItnq6ow4lg&list=PLeqyOOqxeiIPouwvOzxHWVhhwGBpv-FLJ
 
 TODO:
+1. Обеспечить ввод дробей с клавиатуры:
+	Fraction A;
+	cout << "Введите простую дробь: ";
+	cin >> A;
+2. Перегрузить Incremento/Decremento (++/--);
+3. Обеспечить инициализацию простых дробей десятичными:
+	Fraction A = 2.75;
+	cout << A << endl;	//	2(3/4);
+
+TODO:
 В Solution\IntroductionToOOP добавить проект Fraction, и реализовать в нем 
 класс Fraction, описывающий простую дробь. В классе должны быть все необходимые методы,
 и операторы:
