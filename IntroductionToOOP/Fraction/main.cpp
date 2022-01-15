@@ -62,6 +62,7 @@ public:
 	}
 	Fraction(double decimal)
 	{
+		decimal += 1e-11;
 		//decimal - десятичная дробь
 		//1) Сохраняем целую часть дробного числа:
 		integer = decimal;	//implicit coversion (неявное преобразование)
@@ -72,6 +73,7 @@ public:
 		denominator = 1e+9;	//1*10^9
 		numerator = decimal * denominator;
 		reduce();
+		cout << "1ArgConstructor:" << this << endl;
 	}
 	Fraction(int numerator, int denominator)
 	{
@@ -140,6 +142,7 @@ public:
 	//				Methods:
 	Fraction& reduce()
 	{
+		//https://www.webmath.ru/poleznoe/formules_12_7.php
 		int numerator_gcf = (this->numerator); unsigned int denominator_gcf = this->denominator;
 		while (numerator_gcf != 0 && denominator_gcf != 0)
 		{
@@ -219,6 +222,50 @@ std::ostream& operator<<(std::ostream& os, const Fraction& obj)
 	}
 	else if (obj.get_integer() == 0)cout << 0;
 	return os;
+}
+std::istream& operator>>(std::istream& is, Fraction& obj)
+{
+	/*int integer, numerator, denominator;
+	is >> integer >> numerator >> denominator;
+	obj.set_integer(integer);
+	obj.set_numerator(numerator);
+	obj.set_denominator(denominator);*/
+	obj = Fraction();	//Обнуляем объект - задаем ему значение по умолчанию
+	const int SIZE = 256;
+	char buffer[SIZE] = {};
+	//is >> buffer;
+	is.getline(buffer, SIZE);	//Вводит строку с пробелами
+	char delimiters[] = "/( )";
+	char* number[3] = {};	//Сюда будут сохраняться числа из исходной строки (из buffer)
+	int n = 0;	//считает, сколько чисел мы вытащили из исходной строки
+	/*
+	for(start; stop; step)
+	{
+		
+	}
+	*/
+	//http://cplusplus.com/reference/cstring/
+	//http://cplusplus.com/reference/cstring/strtok/
+	for (char* pch = strtok(buffer, delimiters); pch; pch = strtok(NULL, delimiters))
+	{
+		number[n++] = pch;
+	}
+	switch (n)
+	{
+	case 1:obj.set_integer(atoi(number[0])); break;
+		//atoi(str);	//принимает строку, и возвращает int-овое значение числа, 
+						//хранящегося в этой строке
+		//atoi(str);	//преобразует строку в число
+	case 2:
+		obj.set_numerator(atoi(number[0]));
+		obj.set_denominator(atoi(number[1]));
+		break;
+	case 3:
+		obj.set_integer(atoi(number[0]));
+		obj.set_numerator(atoi(number[1]));
+		obj.set_denominator(atoi(number[2]));
+	}
+	return is;
 }
 
 //#define CONSTRUCTORS_CHECK
@@ -310,8 +357,11 @@ void main()
 
 	//cout << ((double)Fraction(1, 2) == (double)Fraction(5, 10))<< endl;
 
-	Fraction A = 2.75;	//From double to Fraction
+	Fraction A = 2.76;	//From double to Fraction
 						//From other to class (преобразование другого типа в наш тип)
+	cout << A << endl;
+
+	cout << "Введите простую дробь: "; cin >> A;
 	cout << A << endl;
 }
 

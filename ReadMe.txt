@@ -2,12 +2,12 @@ https://github.com/okovtun/SPD_121.git
 https://www.youtube.com/watch?v=NItnq6ow4lg&list=PLeqyOOqxeiIPouwvOzxHWVhhwGBpv-FLJ
 
 TODO:
-1. Обеспечить ввод дробей с клавиатуры:
+1. Обеспечить ввод дробей с клавиатуры:		DONE
 	Fraction A;
 	cout << "Введите простую дробь: ";
 	cin >> A;
 2. Перегрузить Incremento/Decremento (++/--);
-3. Обеспечить инициализацию простых дробей десятичными:
+3. Обеспечить инициализацию простых дробей десятичными:	DONE
 	Fraction A = 2.75;
 	cout << A << endl;	//	2(3/4);
 
@@ -22,7 +22,7 @@ TODO:
 4. Вспомогательные методы:
 	- to_proper();		//Переводит дробь в правильную
 	- to_improper();	//Переводит дробь в неправильную
-	- reduce();			//Сокращает дробь
+	- reduce();			//Сокращает дробь		https://www.webmath.ru/poleznoe/formules_12_7.php
 
 DONE:
 1. Выучить теорию!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
