@@ -2,6 +2,16 @@ https://github.com/okovtun/SPD_121.git
 https://www.youtube.com/watch?v=NItnq6ow4lg&list=PLeqyOOqxeiIPouwvOzxHWVhhwGBpv-FLJ
 
 TODO:
+Проверочный код должен заработать:
+	String str1 = "Hello";
+	String str2 = "World";
+	String str3 = str1 + str2;
+	cout << str3 << endl;	//HelloWorld
+
+	str1 += str2;
+	cout << str1 << endl;	//HelloWorld
+
+DONE:
 1. Обеспечить ввод дробей с клавиатуры:		DONE
 	Fraction A;
 	cout << "Введите простую дробь: ";
@@ -11,7 +21,7 @@ TODO:
 	Fraction A = 2.75;
 	cout << A << endl;	//	2(3/4);
 
-TODO:
+DONE:
 В Solution\IntroductionToOOP добавить проект Fraction, и реализовать в нем 
 класс Fraction, описывающий простую дробь. В классе должны быть все необходимые методы,
 и операторы:
