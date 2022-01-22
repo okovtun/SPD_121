@@ -32,26 +32,19 @@ public:
 	}
 
 	//					Constructors:
-	explicit String(int size = 80)
+	explicit String(int size = 80) :size(size), str(new char[size] {})
 	{
 		//Благодаря принимаемому параметру size мы можем создавать строки заданного размера
-		this->size = size;
-		this->str = new char[size] {};
 		cout << "DefaultConst:\t" << this << endl;
 	}
-	String(const char* str)
+	String(const char* str) :size(strlen(str) + 1), str(new char[size] {})
 	{
-		//cout << sizeof(str) << endl;
-		this->size = StringLength(str) + 1;	//Сохраняем размер строки в Байтах, с учетом Терминирующего нуля.
-		this->str = new char[size] {};
 		for (int i = 0; i < size; i++)this->str[i] = str[i];
 		cout << "Constructor:\t" << this << endl;
 	}
-	String(const String& other)
+	String(const String& other) :size(other.size), str(new char[size] {})
 	{
 		//Глубокое копирование (Deep copy)
-		this->size = other.size;
-		this->str = new char[size] {};
 		for (int i = 0; i < size; i++)this->str[i] = other.str[i];
 		cout << "CopyConstructor:" << this << endl;
 	}
@@ -107,10 +100,10 @@ String operator+(const String& left, const String& right)
 	for (int i = 0; i < left.get_size(); i++)
 		//l-value = r-value;
 		result[i] = left[i];
-		//result.get_str()[i] = left.get_str()[i];
+	//result.get_str()[i] = left.get_str()[i];
 	for (int i = 0; i < right.get_size(); i++)
 		result[left.get_size() - 1 + i] = right[i];
-		//result.get_str()[left.get_size() - 1 + i] = right.get_str()[i];
+	//result.get_str()[left.get_size() - 1 + i] = right.get_str()[i];
 	return result;
 }
 
@@ -121,6 +114,7 @@ ostream& operator<<(ostream& os, const String& obj)
 
 //#define NULL_TERMINATED_LINES
 //#define BASE_CHECK
+//#define OPERATOR_PLUS_CHECK
 
 void main()
 {
@@ -173,13 +167,29 @@ str1[2] = 0;*/
 	str5.print();
 #endif // BASE_CHECK
 
+#ifdef OPERATOR_PLUS_CHECK
 	String str1 = "Hello";
 	String str2 = "World";
 	String str3 = str1 + str2;
 	cout << str3 << endl;	//HelloWorld
 
 	str1 += str2;
-	cout << str1 << endl;	//HelloWorld
+	cout << str1 << endl;	//HelloWorld  
+#endif // OPERATOR_PLUS_CHECK
+
+	String str1;	//Default constructor
+	str1.print();
+
+	String str2 = "Hello";	//Signle-argument constructor
+	str2.print();
+
+	String str3 = str2;		//CopyConstructor
+	str3.print();
+
+	String str4();	//Здесь НЕ вызывается конструктор по умолчанию, поскольку здесь НЕ создается никаких объектов.
+	//Объявляем функцию str4(), которая НЕ принимает никаких параметров, и возвращает значение типа String.
+	//Если мы хотим явно вызвать конструктор по умолчанию, то это можно сделать так:
+	String str5{};	//Явный вызов конструктора по умолчанию.
 }
 
 int StringLength(const char* str)
