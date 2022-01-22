@@ -2,6 +2,10 @@ https://github.com/okovtun/SPD_121.git
 https://www.youtube.com/watch?v=NItnq6ow4lg&list=PLeqyOOqxeiIPouwvOzxHWVhhwGBpv-FLJ
 
 TODO:
+1. Разделить класс String на файлы;
+2. Создать ветку FractionSeparation, и в ней разделить класс Fraction на файлы;
+
+DONE:
 Проверочный код должен заработать:
 	String str1 = "Hello";
 	String str2 = "World";
