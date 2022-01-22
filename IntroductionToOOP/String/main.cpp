@@ -7,11 +7,27 @@ using std::endl;;
 
 int StringLength(const char* str);
 
+class String;
+String operator+(const String& left, const String& right);
+
 class String
 {
 	int size;	//Размер строки
 	char* str;	//Указатель на строку в динамической памяти
 public:
+	int get_size()const
+	{
+		return size;
+	}
+	const char* get_str()const
+	{
+		return str;
+	}
+	 char* get_str()
+	{
+		return str;
+	}
+
 	explicit String(int size = 80)
 	{
 		//Благодаря принимаемому параметру size мы можем создавать строки заданного размера
@@ -60,6 +76,21 @@ public:
 		return *this;
 	}
 
+	String& operator+=(const String& other)
+	{
+		return *this = *this + other;
+	}
+
+	const char& operator[](int i)const
+	{
+		return str[i];
+	}
+	char& operator[](int i)
+	{
+		return str[i];
+	}
+
+
 	//					Methods:
 	void print()const
 	{
@@ -67,6 +98,25 @@ public:
 		cout << "Str:\t" << str << endl;
 	}
 };
+
+String operator+(const String& left, const String& right)
+{
+	String result(left.get_size() + right.get_size() - 1);
+	for (int i = 0; i < left.get_size(); i++)
+		//l-value = r-value;
+		result[i] = left[i];
+		//result.get_str()[i] = left.get_str()[i];
+	for (int i = 0; i < left.get_size(); i++)
+		result[left.get_size() - 1 + i] = right[i];
+		//result.get_str()[left.get_size() - 1 + i] = left.get_str()[i];
+	return result;
+}
+
+ostream& operator<<(ostream& os, const String& obj)
+{
+	return os << obj.get_str();
+}
+
 
 //#define NULL_TERMINATED_LINES
 //#define BASE_CHECK
