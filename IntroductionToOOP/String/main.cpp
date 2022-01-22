@@ -28,26 +28,26 @@ public:
 		return str;
 	}
 
-	explicit String(int size = 80)
+	 explicit String(int size = 80) :size(size), str(new char[size] {})
 	{
 		//Благодаря принимаемому параметру size мы можем создавать строки заданного размера
-		this->size = size;
-		this->str = new char[size] {};
+		//this->size = size;
+		//this->str = new char[size] {};
 		cout << "DefaultConst:\t" << this << endl;
 	}
-	String(const char* str)
+	String(const char* str):size(strlen(str) + 1), str(new char[size] {})
 	{
 		//cout << sizeof(str) << endl;
-		this->size = StringLength(str) + 1;	//Сохраняем размер строки в Байтах, с учетом Терминирующего нуля.
-		this->str = new char[size] {};
+		//this->size = StringLength(str) + 1;	//Сохраняем размер строки в Байтах, с учетом Терминирующего нуля.
+		//this->str = new char[size] {};
 		for (int i = 0; i < size; i++)this->str[i] = str[i];
 		cout << "Constructor:\t" << this << endl;
 	}
-	String(const String& other)
+	String(const String& other):size(other.size), str(new char[size] {})
 	{
 		//Глубокое копирование (Deep copy)
-		this->size = other.size;
-		this->str = new char[size] {};
+		//this->size = other.size;
+		//this->str = new char[size] {};
 		for (int i = 0; i < size; i++)this->str[i] = other.str[i];
 		cout << "CopyConstructor:" << this << endl;
 	}
@@ -120,6 +120,7 @@ ostream& operator<<(ostream& os, const String& obj)
 
 //#define NULL_TERMINATED_LINES
 //#define BASE_CHECK
+//#define OPERATOR_PLUS_CHECK
 
 void main()
 {
@@ -172,13 +173,29 @@ str1[2] = 0;*/
 	str5.print();
 #endif // BASE_CHECK
 
+#ifdef OPERATOR_PLUS_CHECK
 	String str1 = "Hello";
 	String str2 = "World";
 	String str3 = str1 + str2;
 	cout << str3 << endl;	//HelloWorld
 
 	str1 += str2;
-	cout << str1 << endl;	//HelloWorld
+	cout << str1 << endl;	//HelloWorld  
+#endif // 
+
+	String str1; //Default constructor
+	str1.print();
+
+	String str2 = "Hello"; //Single-argument constructor
+	str2.print();
+
+	String str3 = str2;  //CopyConstractor
+	str3.print();
+
+	String str4();	//Defauld constructor //Здесь не вызывается конструктор по умолчанию, поскольку здесь не создаётся никаких объектов
+	//Обьявляем функцию str4(), Котороая не принемает никаких параметров и не возвращает значение
+	//если мы хотим явно вызвать конструктор по умолчанию то это можно сделать так 
+	String str5{};	//явный вызов конструктора по умолчанию
 }
 
 int StringLength(const char* str)
