@@ -37,15 +37,14 @@ public:
 		//Благодаря принимаемому параметру size мы можем создавать строки заданного размера
 		cout << "DefaultConst:\t" << this << endl;
 	}
-	String(const char* str) :size(strlen(str) + 1), str(new char[size] {})
+	String(const char* str) :String(strlen(str) + 1)
 	{
 		for (int i = 0; i < size; i++)this->str[i] = str[i];
 		cout << "Constructor:\t" << this << endl;
 	}
-	String(const String& other) :size(other.size), str(new char[size] {})
+	String(const String& other) :String(other.str)
 	{
 		//Глубокое копирование (Deep copy)
-		for (int i = 0; i < size; i++)this->str[i] = other.str[i];
 		cout << "CopyConstructor:" << this << endl;
 	}
 	~String()
