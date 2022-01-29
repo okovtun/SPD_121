@@ -2,6 +2,10 @@ https://github.com/okovtun/SPD_121.git
 https://www.youtube.com/watch?v=NItnq6ow4lg&list=PLeqyOOqxeiIPouwvOzxHWVhhwGBpv-FLJ
 
 TODO:
+Есть 2 типа сотрудников: PermanentEmployee (с постоянной оплатой) и HourlyEmployee (с почасовой оплатой),
+Необходимо создать отдел разнотипных сотрудников, и вычислить общую зарплату для этого отдела.
+
+DONE:
 Проверочный код должен заработать:
 	String str1 = "Hello";
 	String str2 = "World";
