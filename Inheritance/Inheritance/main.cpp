@@ -1,4 +1,5 @@
 #include<iostream>
+#include<fstream>
 #include<string>
 using namespace std;
 
@@ -46,11 +47,36 @@ public:
 	}
 	virtual std::ostream& print(std::ostream& os)const
 	{
-		return os << last_name << " " << first_name << " " << age << " лет";
+		os << "\n--------------------------------------------------------------------------\n";
+		os << std::left;
+		os.width(12);
+		os << last_name;
+		os.width(12);
+		os << first_name;
+		os.width(3);
+		os << age << " лет";
+		return os;
 	}
+	virtual std::ofstream& print(std::ofstream& os)const
+	{
+		os << std::left;
+		os.width(12);
+		os << last_name + ",";
+		os.width(12);
+		os << first_name + ",";
+		os.width(3);
+		os << std::right;
+		os << age;
+		return os;
+	}
+
 };
 
 std::ostream& operator<<(std::ostream& os, const Human& obj)
+{
+	return obj.print(os);
+}
+std::ofstream& operator<<(std::ofstream& os, const Human& obj)
 {
 	return obj.print(os);
 }
@@ -113,12 +139,41 @@ public:
 	}
 	std::ostream& print(std::ostream& os)const
 	{
-		return Human::print(os) << " "
-			<< speciality << " " 
-			<< group << " " 
-			<< rating << " " 
-			<< attendance;
+		/*return Human::print(os) << " "
+			<< speciality << " "
+			<< group << " "
+			<< rating << " "
+			<< attendance;*/
+
+		Human::print(os) << " | ";
+		os << std::left;
+		os.width(22);
+		os << speciality;
+		os.width(8);
+		os << group;
+		os.width(4);
+		os << rating;
+		os.width(4);
+		os << attendance;
+
+		return os;
 	}
+	std::ofstream& print(std::ofstream& os)const
+	{
+		Human::print(os) << ", ";
+		os << std::left;
+		os.width(22);
+		os << speciality + ",";
+		os.width(8);
+		os << group + ",";
+		os.width(4);
+		os << std::to_string(rating) + ",";
+		os.width(4);
+		os << attendance;
+
+		return os;
+	}
+
 };
 
 class Teacher :public Human
@@ -159,7 +214,27 @@ public:
 	}
 	std::ostream& print(std::ostream& os)const
 	{
-		return Human::print(os)	<< " " << speciality << " " << experience;
+		//return Human::print(os)	<< " " << speciality << " " << experience;
+
+		Human::print(os) << " | ";
+		os << std::left;
+		os.width(22);
+		os << speciality;
+
+		//os << std::right;
+		os.width(4);
+		os << experience;
+		return os;
+	}
+	std::ofstream& print(std::ofstream& os)const
+	{
+		Human::print(os) << ", ";
+		os << std::left;
+		os.width(22);
+		os << speciality + ",";
+		os.width(4);
+		os << experience;
+		return os;
 	}
 };
 
@@ -191,8 +266,14 @@ public:
 	}
 	std::ostream& print(std::ostream& os)const
 	{
-		return Student::print(os) << " " << subject;
+		return Student::print(os) << " | " << subject;
 	}
+	std::ofstream& print(std::ofstream& os)const
+	{
+		Student::print(os) << ", " << subject;
+		return os;
+	}
+
 };
 
 //#define INHERITANCE_CHECK
@@ -224,14 +305,22 @@ void main()
 		new Teacher("Diaz", "Ricardo", 50, "Weapons distribution", 30)
 	};
 
-		cout << "\n----------------------------------\n";
-	//Specialisation:
+	//cout << "\n----------------------------------\n";
+//Specialisation:
 	for (int i = 0; i < sizeof(group) / sizeof(Human*); i++)
 	{
 		//group[i]->print();
-		cout << *group[i];
-		cout << "\n----------------------------------\n";
+		cout << *group[i] << endl;;
+		//cout << "\n----------------------------------\n";
 	}
+
+	ofstream fout("group.txt");
+	for (int i = 0; i < sizeof(group) / sizeof(Human*); i++)
+	{
+		fout << *group[i] << endl;
+	}
+	fout.close();
+	system("notepad group.txt");
 
 	//Очистка памяти:
 	for (int i = 0; i < sizeof(group) / sizeof(Human*); i++)
