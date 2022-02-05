@@ -1,5 +1,5 @@
-Pinkman,    Jessie,      20, Chemistry,            WW_121, 90.000000,85  
-White,      Walter,      50, Chemistry,            20  
-Schrader,   Hank,        40, Criminalistic,        WW_121, 95.000000,55  , How to catch Heisenberg
-Vercetty,   Tomas,       30, Criminalistic,        Vice,   98.000000,95  
-Diaz,       Ricardo,     50, Weapons distribution, 30  
+class Student: Pinkman,    Jessie,      20, Chemistry,            WW_121, 90.000000,85  
+class Teacher: White,      Walter,      50, Chemistry,            20  
+class Graduate:Schrader,   Hank,        40, Criminalistic,        WW_121, 95.000000,55  , How to catch Heisenberg
+class Student: Vercetty,   Tomas,       30, Criminalistic,        Vice,   98.000000,95  
+class Teacher: Diaz,       Ricardo,     50, Weapons distribution, 30  
