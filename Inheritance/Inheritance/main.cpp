@@ -113,7 +113,7 @@ public:
 	}
 	std::ostream& print(std::ostream& os)const
 	{
-		return Human::print(os) 
+		return Human::print(os) << " "
 			<< speciality << " " 
 			<< group << " " 
 			<< rating << " " 
