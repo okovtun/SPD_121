@@ -40,15 +40,20 @@ public:
 		set_age(age);
 		cout << "HConstructor:\t" << this << endl;
 	}
-	~Human()
+	virtual ~Human()
 	{
 		cout << "HDestructor:\t" << this << endl;
 	}
-	virtual void print()const
+	virtual std::ostream& print(std::ostream& os)const
 	{
-		cout << last_name << " " << first_name << " " << age << " лет\n";
+		return os << last_name << " " << first_name << " " << age << " лет";
 	}
 };
+
+std::ostream& operator<<(std::ostream& os, const Human& obj)
+{
+	return obj.print(os);
+}
 
 class Student :public Human
 {
@@ -106,10 +111,13 @@ public:
 	{
 		cout << "SDestructor:\t" << this << endl;
 	}
-	void print()const
+	std::ostream& print(std::ostream& os)const
 	{
-		Human::print();
-		cout << speciality << " " << group << " " << rating << " " << attendance << endl;
+		return Human::print(os) 
+			<< speciality << " " 
+			<< group << " " 
+			<< rating << " " 
+			<< attendance;
 	}
 };
 
@@ -149,10 +157,9 @@ public:
 	{
 		cout << "TDestructor:\t" << this << endl;
 	}
-	void print()const
+	std::ostream& print(std::ostream& os)const
 	{
-		Human::print();
-		cout << speciality << " " << experience << endl;
+		return Human::print(os)	<< " " << speciality << " " << experience;
 	}
 };
 
@@ -182,10 +189,9 @@ public:
 	{
 		cout << "GDestructor:\t" << this << endl;
 	}
-	void print()const
+	std::ostream& print(std::ostream& os)const
 	{
-		Student::print();
-		cout << subject << endl;
+		return Student::print(os) << " " << subject;
 	}
 };
 
@@ -218,10 +224,18 @@ void main()
 		new Teacher("Diaz", "Ricardo", 50, "Weapons distribution", 30)
 	};
 
+		cout << "\n----------------------------------\n";
 	//Specialisation:
 	for (int i = 0; i < sizeof(group) / sizeof(Human*); i++)
 	{
-		group[i]->print();
+		//group[i]->print();
+		cout << *group[i];
 		cout << "\n----------------------------------\n";
+	}
+
+	//Очистка памяти:
+	for (int i = 0; i < sizeof(group) / sizeof(Human*); i++)
+	{
+		delete group[i];
 	}
 }
