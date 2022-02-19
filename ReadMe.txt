@@ -2,6 +2,12 @@ https://github.com/okovtun/SPD_121.git
 https://www.youtube.com/watch?v=NItnq6ow4lg&list=PLeqyOOqxeiIPouwvOzxHWVhhwGBpv-FLJ
 
 TODO:
+1. Реализовать метод erase(), который удаляет значение из списка по индексу;
+2. Написать деструктор списка, который будет очищать список перед удалением;
+3. CopyMethods;
+4. MoveMethods;
+
+DONE:
 1. Реализовать проект AbstractGeometry;
 2. В иерархию фигур добавить паралеллограмм, ромб, трапецию и т.д.
 3. Hardcore: Нарисовать все эти фигуры используя OpenGL, либо DirectX;

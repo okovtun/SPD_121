@@ -429,6 +429,6 @@ void main()
 	Geometry::EquilateralTriangle eqt(380, 900, 220, 15, Geometry::Color::green);
 	eqt.info();
 
-	Geometry::IsoscalesTriangle isct(180, 91, 100, 100, 1, Geometry::Color::green);
+	Geometry::IsoscalesTriangle isct(180, 77, 100, 100, 1, Geometry::Color::green);
 	isct.info();
 }
