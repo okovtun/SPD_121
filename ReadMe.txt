@@ -2,10 +2,26 @@ https://github.com/okovtun/SPD_121.git
 https://www.youtube.com/watch?v=NItnq6ow4lg&list=PLeqyOOqxeiIPouwvOzxHWVhhwGBpv-FLJ
 
 TODO:
-1. –еализовать метод erase(), который удал€ет значение из списка по индексу;
-2. Ќаписать деструктор списка, который будет очищать список перед удалением;
-3. CopyMethods;
-4. MoveMethods;
+1. ¬ класс ForwardList добавить метод uniqe(), который будет удал€ть повтор€ющиес€ 
+   значени€ из списка, и таким образом будет делать список уникальным;
+2. ¬ класс ForwardList добавить метод reverse(), который будет мен€ть пор€док следовани€
+   элементов на противоположный;
+   3	5	8	13	21;//list
+   21	13	8	5	3;//reverse list
+3. ѕроверочный код должен заработать:
+	ForwardList list = { 3, 5, 8, 13, 21 };
+	for(int i:list)
+	{
+		cout << i << tab;
+	}
+	cout << endl;
+	https://cplusplus.com/doc/tutorial/control/#rangefor
+
+DONE:
+1. –еализовать метод erase(), который удал€ет значение из списка по индексу;	DONE
+2. Ќаписать деструктор списка, который будет очищать список перед удалением;	DONE
+3. CopyMethods;		DONE
+4. MoveMethods;		DONE
 
 DONE:
 1. –еализовать проект AbstractGeometry;
