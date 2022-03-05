@@ -2,7 +2,8 @@ https://github.com/okovtun/SPD_121.git
 https://www.youtube.com/watch?v=NItnq6ow4lg&list=PLeqyOOqxeiIPouwvOzxHWVhhwGBpv-FLJ
 
 TODO:
-Проверочный код в секции HOME_WORK должен заработать.
+Проверочный код в секции HOME_WORK должен заработать:
+https://github.com/okovtun/SPD_121/blob/6f192e26d2222a8f6b4f1d4f1529ea39ca9628a8/DataContainers/List2/main.cpp#L219
 
 DONE:
 1. В класс ForwardList добавить метод uniqe(), который будет удалять повторяющиеся 
