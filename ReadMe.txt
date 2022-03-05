@@ -2,6 +2,9 @@ https://github.com/okovtun/SPD_121.git
 https://www.youtube.com/watch?v=NItnq6ow4lg&list=PLeqyOOqxeiIPouwvOzxHWVhhwGBpv-FLJ
 
 TODO:
+Проверочный код в секции HOME_WORK должен заработать.
+
+DONE:
 1. В класс ForwardList добавить метод uniqe(), который будет удалять повторяющиеся 
    значения из списка, и таким образом будет делать список уникальным;
 2. В класс ForwardList добавить метод reverse(), который будет менять порядок следования
