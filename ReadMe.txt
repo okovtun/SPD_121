@@ -2,6 +2,13 @@ https://github.com/okovtun/SPD_121.git
 https://www.youtube.com/watch?v=NItnq6ow4lg&list=PLeqyOOqxeiIPouwvOzxHWVhhwGBpv-FLJ
 
 TODO:
+1. Добить двусвязный список;
+------------------------------------------------------------------------
+2. В проекте Recusrion написать следующие рекурсивные функции:
+	int factorial(int n);	//Возвращает факториал числа
+	double power(double a, int n);	//Возвращает число 'a' в степени 'n'
+
+DONE:
 Проверочный код в секции HOME_WORK должен заработать:
 https://github.com/okovtun/SPD_121/blob/6f192e26d2222a8f6b4f1d4f1529ea39ca9628a8/DataContainers/List2/main.cpp#L219
 
