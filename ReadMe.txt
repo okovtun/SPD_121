@@ -2,11 +2,17 @@ https://github.com/okovtun/SPD_121.git
 https://www.youtube.com/watch?v=NItnq6ow4lg&list=PLeqyOOqxeiIPouwvOzxHWVhhwGBpv-FLJ
 
 TODO:
+1. Написать деструктор таким образом, чтобы он очищал дерево перед удалением;
+2. Написать метод erase(), который удаляет элемент из дерева по значению;
+3. Tree tree = {50, 25, 75, 16, 32, 64, 80};
+4. CopyMethods;
+
+DONE:
 1. Добить двусвязный список;
 ------------------------------------------------------------------------
 2. В проекте Recusrion написать следующие рекурсивные функции:
 	int factorial(int n);	//Возвращает факториал числа
-	double power(double a, int n);	//Возвращает число 'a' в степени 'n'
+	double power(double a, int n 	//Возвращает число 'a' в степени 'n'
 
 DONE:
 Проверочный код в секции HOME_WORK должен заработать:
