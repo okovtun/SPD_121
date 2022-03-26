@@ -2,10 +2,10 @@ https://github.com/okovtun/SPD_121.git
 https://www.youtube.com/watch?v=NItnq6ow4lg&list=PLeqyOOqxeiIPouwvOzxHWVhhwGBpv-FLJ
 
 TODO:
-1. Ќаписать деструктор таким образом, чтобы он очищал дерево перед удалением;
-2. Ќаписать метод erase(), который удал€ет элемент из дерева по значению;
-3. Tree tree = {50, 25, 75, 16, 32, 64, 80};
-4. CopyMethods;
+1. Ќаписать деструктор таким образом, чтобы он очищал дерево перед удалением;	DONE
+2. Ќаписать метод erase(), который удал€ет элемент из дерева по значению;		DONE
+3. Tree tree = {50, 25, 75, 16, 32, 64, 80};			DONE
+4. CopyMethods; 
 
 DONE:
 1. ƒобить двусв€зный список;

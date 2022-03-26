@@ -1,6 +1,9 @@
 ﻿//BinaryTree
 #include<iostream>
 using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
 
 class Tree
 {
@@ -33,14 +36,36 @@ public:
 	{
 		cout << "TConstructor:\t" << this << endl;
 	}
+	Tree(const std::initializer_list<int>& il) :Tree()
+	{
+		for (int const* it = il.begin(); it != il.end(); it++)
+			insert(*it, Root);
+	}
+	Tree(const Tree& other) :Tree()
+	{
+		copy(other.Root);
+	}
 	~Tree()
 	{
+		clear(Root);
 		cout << "TDestructor:\t" << this << endl;
+	}
+
+	Tree& operator=(const Tree& other)
+	{
+		if (this == &other)return *this;
+		clear(this->Root);
+		copy(other.Root);
+		cout << "CopyAssignment:\t" << this << endl;
 	}
 
 	void insert(int Data)
 	{
 		insert(Data, this->Root);
+	}
+	void erase(int Data)
+	{
+		erase(Data, Root);
 	}
 	int minValue()const
 	{
@@ -83,6 +108,47 @@ private:
 			if (Root->pRight == nullptr)Root->pRight = new Element(Data);
 			else insert(Data, Root->pRight);
 		}
+	}
+	void erase(int Data, Element*& Root)
+	{
+		if (Root == nullptr)return;
+		erase(Data, Root->pLeft);
+		erase(Data, Root->pRight);
+		if (Data == Root->Data)
+		{
+			if (Root->pLeft == Root->pRight)
+			{
+				delete Root;
+				Root = nullptr;
+			}
+			else
+			{
+				if (count(Root->pLeft) > count(Root->pRight))
+				{
+					Root->Data = maxValue(Root->pLeft);
+					erase(maxValue(Root->pLeft), Root->pLeft);
+				}
+				else
+				{
+					Root->Data = minValue(Root->pRight);
+					erase(minValue(Root->pRight), Root->pRight);
+				}
+			}
+		}
+	}
+	void clear(Element* Root)
+	{
+		if (Root == nullptr)return;
+		clear(Root->pLeft);
+		clear(Root->pRight);
+		delete Root;
+	}
+	void copy(Element* Root)
+	{
+		if (Root == nullptr)return;
+		insert(Root->Data, this->Root);
+		copy(Root->pLeft);
+		copy(Root->pRight);
 	}
 
 	int minValue(Element* Root)const
@@ -147,9 +213,12 @@ public:
 	}
 };
 
+//#define BASE_CHECK
+
 void main()
 {
 	setlocale(LC_ALL, "");
+#ifdef BASE_CHECK
 	int n;
 	cout << "Введите размер дерева: "; cin >> n;
 	Tree tree;
@@ -183,4 +252,18 @@ void main()
 	cout << "Минимальное значение в дереве: " << unique_tree.minValue() << endl;
 	cout << "Максимальное значение в дереве: " << unique_tree.maxValue() << endl;
 	cout << "Количество элементов в дереве: " << unique_tree.count() << endl;
+#endif // BASE_CHECK
+
+	Tree tree = { 50, 25, 75, 16,32,64,80 };
+	tree.print();
+
+	int value;
+	cout << "Введите удаляемое значение: "; cin >> value;
+	tree.erase(value);
+	tree.print();
+
+	//Tree tree2 = tree;	//CopyConstructor
+	Tree tree2;
+	tree2 = tree;
+	tree2.print();
 }
