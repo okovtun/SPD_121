@@ -3,6 +3,8 @@ https://www.youtube.com/watch?v=NItnq6ow4lg&list=PLeqyOOqxeiIPouwvOzxHWVhhwGBpv-
 
 STL:
 http://cplusplus.com/reference/stl/
+1. ƒобавить элемент по указанному индексу в std::list;
+2. 
 
 DONE:
 1. Ќаписать деструктор таким образом, чтобы он очищал дерево перед удалением;	DONE

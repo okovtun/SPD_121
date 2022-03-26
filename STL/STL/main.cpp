@@ -1,6 +1,7 @@
 #include<iostream>
 #include<array>
 #include<vector>
+#include<deque>
 using std::cin;
 using std::cout;
 using std::endl;
@@ -9,7 +10,8 @@ using std::endl;
 #define delimiter "\n------------------------------------\n"
 
 //#define STL_ARRAY
-#define STL_VECTOR
+//#define STL_VECTOR
+#define STL_DEQUE
 
 void main()
 {
@@ -63,16 +65,38 @@ void main()
 		std::cerr << e.what() << endl;
 	}
 
-	int index;
+	/*int index;
+	int count;
 	int value;
 	cout << "¬ведите индекс добавл€емого элемента: "; cin >> index;
+	cout << "¬ведите количество добавлений: "; cin >> count;
 	cout << "¬ведите значение добавл€емого элемента: "; cin >> value;
-	vec.insert(vec.begin() + index, value);
+	vec.insert(vec.begin() + index, count, value);*/
+	vec.insert(vec.begin() + 3, { 1024, 2048, 3072 });
 	for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); ++it)
 	{
 		cout << *it << tab;
 	}
 	cout << endl;
 #endif // STL_VECTOR
+
+#ifdef STL_DEQUE
+	//deque - это контейнер, который представл€ет собой список динамических массивов
+	//(список векторов).
+	std::deque<int> deque = { 3,5,8,13,21 };
+	deque.push_back(34);
+	deque.push_back(55);
+	deque.push_back(89);
+
+	deque.push_front(2);
+	deque.push_front(1);
+	deque.push_front(1);
+	deque.push_front(0);
+	for (int i : deque)
+	{
+		cout << i << tab;
+	}
+	cout << endl;
+#endif // STL_DEQUE
 
 }
