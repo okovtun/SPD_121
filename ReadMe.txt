@@ -4,7 +4,8 @@ https://www.youtube.com/watch?v=NItnq6ow4lg&list=PLeqyOOqxeiIPouwvOzxHWVhhwGBpv-
 STL:
 http://cplusplus.com/reference/stl/
 1. Добавить элемент по указанному индексу в std::list;
-2. 
+2. В отдельном проекте Police,  решить первую задачу из файла:
+   https://github.com/okovtun/SPD_121/blob/master/STL/GAI%20DZ_PS_C%2B%2B_nedelya_09.pdf
 
 DONE:
 1. Написать деструктор таким образом, чтобы он очищал дерево перед удалением;	DONE
