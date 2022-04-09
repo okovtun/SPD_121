@@ -3,28 +3,28 @@
   <Class Name="Human" Collapsed="true">
     <Position X="1.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAQQCAAAAMAAAAAAAAAAAABEAAAAyAQAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAQQCAAAAMAAAAAAAAAAAABEAAAAyEQAA=</HashCode>
       <FileName>main.cpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Teacher" Collapsed="true">
+  <Class Name="Teacher">
     <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAcAAAAAAAAAAAAAAAAAAAAAAAAAAACAQCBEAgAAAAA=</HashCode>
+      <HashCode>AAcAAAAAAAAAAAAAAAAAAAAAAAAAAACAQCBEAgAEAAA=</HashCode>
       <FileName>main.cpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Graduate">
     <Position X="2.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAAAAAAAAAACAACAAAAAAAAAAAAAIIAA=</HashCode>
+      <HashCode>AAYAAAAAAAAAAAAAAAAAAACAACAAAAAAAAAAAAAMIAA=</HashCode>
       <FileName>main.cpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Student" Collapsed="true">
     <Position X="2.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QQ4AAAAAQAAAAAAABAAAgABAAQQAAAAAQAAEAAAAEAA=</HashCode>
+      <HashCode>QQ4AAAAAQAAAAAAABAAAgABAAQQAAAAAQAAEAAAEEAA=</HashCode>
       <FileName>main.cpp</FileName>
     </TypeIdentifier>
   </Class>

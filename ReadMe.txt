@@ -1,6 +1,10 @@
 https://github.com/okovtun/SPD_121.git
 https://www.youtube.com/watch?v=NItnq6ow4lg&list=PLeqyOOqxeiIPouwvOzxHWVhhwGBpv-FLJ
 
+UML:
+https://www.codewars.com/kata/578b4f9b7c77f535fc00002f
+https://www.codewars.com/kata/578df8f3deaed98fcf0001e9
+
 STL:
 http://cplusplus.com/reference/stl/
 1. Добавить элемент по указанному индексу в std::list;
