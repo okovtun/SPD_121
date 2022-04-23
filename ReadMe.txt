@@ -1,6 +1,22 @@
 https://github.com/okovtun/SPD_121.git
 https://www.youtube.com/watch?v=NItnq6ow4lg&list=PLeqyOOqxeiIPouwvOzxHWVhhwGBpv-FLJ
 
+WinAPI:
+https://www.wxwidgets.org/
+https://tproger.ru/digest/cpp-best-gui/
+1. В проекте ListBox кнопка "Добавить" должна добавлять указанный ползователем текст в ListBox,
+   а кнопка "Удалить" должна удалять выбранный элемент из ListBox.
+   https://docs.microsoft.com/en-us/windows/win32/controls/list-boxes
+2. В поекте ComboBox, при нажатии на кнопку OK должен появляться MessageBox с номером и содержимым
+   выбранного элемента.
+   https://docs.microsoft.com/en-us/windows/win32/controls/combo-boxes
+3. Difference between Class and Struct:
+	https://www.youtube.com/watch?v=NgIgJRlZQow
+	https://www.youtube.com/watch?v=fLgTtaqqJp0
+4. sprintf:
+	//https://www.cplusplus.com/reference/cstdio/sprintf/
+	//https://www.cplusplus.com/reference/cstdio/printf/
+
 UML:
 https://www.codewars.com/kata/578b4f9b7c77f535fc00002f
 https://www.codewars.com/kata/578df8f3deaed98fcf0001e9
