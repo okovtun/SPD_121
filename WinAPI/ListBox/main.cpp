@@ -30,6 +30,34 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	case WM_COMMAND:
 		switch (LOWORD(wParam))
 		{
+		case IDC_CHECK_SORT:
+		{
+			/*if (HIWORD(wParam) == BST_CHECKED)
+			{
+				MessageBox(hwnd, "Checkbox установлен", "Info", MB_OK);
+			}
+			else if (HIWORD(wParam) == BST_UNCHECKED)
+			{
+				MessageBox(hwnd, "Checkbox сброшен", "Info", MB_OK);
+			}*/
+			HWND hList = GetDlgItem(hwnd, IDC_LIST1);
+			DWORD dwStyle = GetWindowLong(hList, GWL_STYLE);
+			if (SendMessage(GetDlgItem(hwnd, IDC_CHECK_SORT), BM_GETCHECK, 0, 0) == BST_CHECKED)
+			{
+				//MessageBox(hwnd, "Checkbox установлен", "Info", MB_OK);
+				MessageBox(hwnd, "Сортировка включена", "Info", MB_OK);
+				SetWindowLong(hList, GWL_STYLE, dwStyle | LBS_SORT);
+			}
+			if (SendMessage(GetDlgItem(hwnd, IDC_CHECK_SORT), BM_GETCHECK, 0, 0) == BST_UNCHECKED)
+			{
+				//MessageBox(hwnd, "Checkbox сброшен", "Info", MB_OK);
+				MessageBox(hwnd, "Сортировка отключена", "Info", MB_OK);
+				dwStyle -= LBS_SORT;
+				SetWindowLong(hList, GWL_STYLE, dwStyle);
+			}
+
+		}
+		break;
 		case IDC_BUTTON_ADD:
 		{
 			DialogBoxParam(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_DIALOG_ADD), hwnd, DlgProc, 0);
@@ -58,7 +86,7 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			sprintf(sz_msg, "Вы выбрали элемент № %d, со значением %s", i, sz_buffer);
 			MessageBox(hwnd, sz_msg, "Info", MB_OK | MB_ICONINFORMATION);
 		}
-			break;
+		break;
 		case IDCANCEL:EndDialog(hwnd, 0); break;
 		}
 		break;
