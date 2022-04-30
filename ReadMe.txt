@@ -4,6 +4,7 @@ https://www.youtube.com/watch?v=NItnq6ow4lg&list=PLeqyOOqxeiIPouwvOzxHWVhhwGBpv-
 WinAPI:
 https://www.wxwidgets.org/
 https://tproger.ru/digest/cpp-best-gui/
+https://github.com/okovtun/PS_VS_PU_35/tree/master/WinAPI
 1. В проекте ListBox кнопка "Добавить" должна добавлять указанный ползователем текст в ListBox,
    а кнопка "Удалить" должна удалять выбранный элемент из ListBox.
    https://docs.microsoft.com/en-us/windows/win32/controls/list-boxes
